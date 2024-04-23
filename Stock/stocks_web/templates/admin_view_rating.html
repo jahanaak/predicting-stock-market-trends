@@ -1,0 +1,90 @@
+{% include 'admin_header.html' %}
+
+<style type="text/css">
+    th, td {
+        padding: 20px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .rate {
+        float: left;
+        height: 46px;
+        padding: 0 10px;
+    }
+
+    .rate:not(:checked) > input {
+        position: absolute;
+        top: -9999px;
+    }
+
+    .rate:not(:checked) > label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 30px;
+        color: #c59b08;
+    }
+
+    .rate:not(:checked) > label:before {
+        content: '★ ';
+    }
+
+    
+
+    
+
+    
+</style>
+ <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single" style="color:white; text-align: center;" hidden="">Law</h1>
+              
+            </div>
+          </div>
+         
+      </div>
+    
+    </section>
+        <body style="background-image: url(static/images/admin_banner.jpg); background-repeat: no-repeat;background-size: 1600px 400px">
+            <h1 style="text-align: center;color: white">Rating</h1>
+            <br><br><br><br><br><br><br><br><br><br>
+<center>
+
+<table class="table">
+    <tr>
+        
+        <th>Rating</th>
+        <th>Review</th>
+        <th>Date</th>
+        
+    </tr>
+    {% for i in data['view'] %}
+    <tr>
+        <!-- <td>{{ i['first_name'] }} {{ i['last_name'] }}</td> -->
+        <td>
+            <div class="rate">
+              {% set rating = i['rating']|int %}
+                {% for j in range(1, rating+1) %}
+                    <label for="star{{ j }}" title="{{ j }} ">{{ j }} </label>
+                {% endfor %}
+            </div>
+        </td>
+        
+        <td>{{ i['review'] }}</td>
+        <td>{{ i['date'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</center>
+
+
+{% include 'footer.html'%}

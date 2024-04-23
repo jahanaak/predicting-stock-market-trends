@@ -1,0 +1,45 @@
+{% include 'expert_header.html' %}
+<center>
+<h1>Notifications</h1>
+{% if data['up'] %}
+<form method="post">
+	<table>
+		<tr>
+			<th>Notifications</th>
+			<td><input type="text" name="noti" class="form-control" required="" value="{{data['up'][0]['notification']}}"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="update" value="update" class="btn btn-success"></td>
+		</tr>
+	</table>
+</form>
+{% else %}
+<form method="post">
+	<table>
+		<tr>
+			<th>Notifications</th>
+			<td><input type="text" name="noti" class="form-control" required=""></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="ns" value="submit" class="btn btn-primary"></td>
+		</tr>
+	</table>
+	<table class="table">
+		<tr>
+			<th>Notifications</th>
+			<th>Datetime</th>
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{i['notification']}}</td>
+			<td>{{i['datetime']}}</td>
+			<td><a href="?action=update&nid={{i['notification_id']}}">update</a></td>
+			<td><a href="?action=delete&nid={{i['notification_id']}}">delete</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+{% endif %}
+</center>
+{% include 'footer.html' %}

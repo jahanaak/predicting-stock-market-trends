@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Price Chart with Progress Bar</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body>
+
+<!-- Progress bar section -->
+<p><font color="black">Loading Data...</font></p>
+<progress id="loadingProgress" max="100" value="0" style="width:100%;"></progress>
+
+<!-- Chart section -->
+<p><font color="black">X-axis: days<br>Y-axis: stock price</font></p>
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+<script>
+// Simulate loading data with a progress bar
+function loadDataWithProgressBar() {
+    const loadingProgress = document.getElementById("loadingProgress");
+    const progressBarInterval = setInterval(function() {
+        // Increase the progress value
+        loadingProgress.value += 10;
+
+        // Stop when the progress reaches 100
+        if (loadingProgress.value >= 100) {
+            clearInterval(progressBarInterval);
+            loadingProgress.style.display = "none"; // Hide the progress bar
+        }
+    }, 500); // Adjust the interval to control the speed of progress
+
+    // Replace the setTimeout with your actual data loading logic
+    setTimeout(function() {
+        const xValues = {{data['x']}};
+        const yValues = {{data['y']}};
+
+        new Chart("myChart", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    fill: false,
+                    lineTension: 0,
+                    backgroundColor: "rgba(0,0,255,1.0)",
+                    borderColor: "rgba(0,0,255,0.1)",
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: { display: false },
+                scales: {
+                    yAxes: [{ ticks: { min: 100, max: 150 } }],
+                }
+            }
+        });
+    }, 3000); // Simulate a delay for data loading (adjust as needed)
+}
+
+// Call the function to load data with the progress bar
+loadDataWithProgressBar();
+</script>
+
+</body>
+</html>

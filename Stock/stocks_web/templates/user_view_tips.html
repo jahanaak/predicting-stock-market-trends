@@ -1,0 +1,21 @@
+{% include 'user_header.html' %}
+<center>
+<h1>View Tips</h1>
+<form>
+	<table class="table">
+		<tr>
+			<th>Tips</th>
+			<td>Date</td>
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{i['tips']}}</td>
+			<td>{{i['date']}}</td>
+			<td><a href="doubt?eid={{i['expert_id']}}">Ask doubt</a></td>
+			<td><a href="user_add_rating?eid={{i['expert_id']}}">Rate us</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+</center>
+{% include 'footer.html' %}

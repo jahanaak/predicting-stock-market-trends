@@ -1,0 +1,19 @@
+{% include 'user_header.html' %}
+<center>
+<h1>View Reply</h1>
+<form>
+	<table class="table">
+		<tr>
+			<th>Complaint</th>
+			<th>Reply</th>
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{i['complaint']}}
+			<td>{{i['reply']}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+</center>
+{% include 'footer.html' %}

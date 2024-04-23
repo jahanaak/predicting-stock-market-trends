@@ -1,0 +1,22 @@
+{% include 'expert_header.html' %}
+<center>
+<h1>View Doubts</h1>
+<form>
+	<table class="table">
+		<tr>
+			<th>Doubts</th>
+			<th>Date</th>
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{i['doubt']}}</td>
+			<td>{{i['date']}}</td>
+			{%if i['reply']=='pending'%}
+			<td><a href="expert_reply?did={{i['doubt_id']}}">Reply</a></td>
+			{%endif%}
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+</center>
+{% include 'footer.html' %}

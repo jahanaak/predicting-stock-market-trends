@@ -1,0 +1,55 @@
+{% include 'public_header.html' %}
+<center>
+<h1>User Registration</h1>
+<form method="post">
+	<table>
+		<tr>
+			<th>Firstname</th>
+			<td><input type="text" name="fname"  class="form-control" required="" pattern="[A-Z a-z]+"></td>
+		</tr>
+		<tr>
+			<th>Lastname</th>
+			<td><input type="text" name="lname" class="form-control" required="" pattern="[A-Z a-z]+"></td>
+		</tr>
+		<tr>
+			<th>Place</th>
+			<td><select name="state">
+				<option value="Kerala">Kerala</option>
+				<option value="UP">UP</option>
+				<option value="TN">TN</option>
+				<option value="Karnataka">Karnataka</option>
+				<option value="Telgana">Telgana</option>
+				<option value="Punjab">Punjab</option>
+			</select></td>
+		</tr>
+		<tr>
+			<th>Post</th>
+			<td><input type="file" name="po" class="form-control" required=""></td>
+		</tr>
+		<tr>
+			<th>Pin</th>
+			<td><input type="text" name="pi"  class="form-control" required="" pattern="[0-9]{6}" maxlength="6"></td>
+		</tr>
+		<tr>
+			<th>Phone</th>
+			<td><input type="text" name="phn" class="form-control" required="" pattern="[0-9]{10}" maxlength="10"></td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td><input type="email" name="mail" class="form-control" required="" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"></td>
+		</tr>
+		<tr>
+			<th>Username</th>
+			<td><input type="text" name="uname" class="form-control" required=""></td>
+		</tr>
+		<tr>
+			<th>Password</th>
+			<td><input type="password" name="passw" class="form-control" required="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center" ><input type="submit" name="us" value="submit" class="btn btn-primary"></td>
+		</tr>
+	</table>
+</form>
+<center>
+{% include 'footer.html' %}

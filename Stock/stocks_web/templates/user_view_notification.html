@@ -1,0 +1,19 @@
+{% include 'user_header.html' %}
+<center>
+<h1>View Notifications</h1>
+<form>
+	<table class="table">
+		<tr>
+			<th>Notification</th>
+			<th>Datetime</th>
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{i['notification']}}</td>
+			<td>{{i['datetime']}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+</center>
+{% include 'footer.html' %}

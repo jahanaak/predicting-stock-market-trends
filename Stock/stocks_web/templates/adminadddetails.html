@@ -1,0 +1,51 @@
+{% include 'admin_header.html' %}
+
+<br><br><br><br><br><br><br>
+<center>
+
+<form method="post" style="margin-top: 100px;">
+	<table>
+		<tr>
+			<th>Open</th>
+			<td><input type="text" name="open" number class="form-control" required=""></td>
+		</tr>
+		<tr>
+			<th>High</th>
+			<td><input type="text" name="high" number class="form-control" required=""></td>
+		</tr>
+		<tr>
+			<th>Low</th>
+			<td><input type="text" name="low" number class="form-control" required=""></td>
+		</tr>
+		<tr>
+			<th>Close</th>
+			<td><input type="text" name="close" number class="form-control" required=""></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="btn btn-primary"></td>
+		</tr>
+	</table>
+	<table class="table">
+		<tr>
+			<th>Open</th>
+			<th>High</th>
+			<th>Low</th>
+			<th>Close</th>
+			
+			
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{i['open']}}</td>
+			<td>{{i['high']}}</td>
+			<td>{{i['low']}}</td>
+			<td>{{i['close']}}</td>
+			
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+
+</center>
+{% include 'footer.html' %}

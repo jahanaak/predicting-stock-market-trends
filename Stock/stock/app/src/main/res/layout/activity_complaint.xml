@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    tools:context=".complaint">
+
+    <ImageView
+        android:src="@drawable/complaint_bg"
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
+
+    <EditText
+        android:layout_marginTop="20dp"
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="enter your complaint"
+        android:inputType="textPersonName" />
+
+<!--    <Button-->
+<!--        android:id="@+id/button7"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Send" />-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button7"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#0947E8"
+        android:text="send"
+
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_marginTop="30px"
+        android:textColor="#0947E8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:text="Registered Complaints" />
+
+    <ListView
+        android:id="@+id/listv"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_width="300dp"
+        android:layout_height="322dp"
+        android:layout_marginTop="20dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+
+    </ListView>
+</LinearLayout>
